@@ -1,6 +1,8 @@
+import s from './Header.module.css'
+
 const Header = () => {
     return (
-        <header className='header'>
+        <header className={s.header}>
             <img src='https://www.dsgroup.by/bitrix/templates/aspro-corporation/images/logo.png'/>
         </header>
     );
