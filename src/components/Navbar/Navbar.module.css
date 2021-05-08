@@ -2,9 +2,15 @@
     grid-area: n;
     background-color: cadetblue;
 }
-.item {
+.item a {
     color: white;
+    text-decoration: none;
+    padding: 20px;
+
 }
-.item.active {
+a:hover {
+        color: powderblue;
+}
+a.active {
     color: gold;
 }

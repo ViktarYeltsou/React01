@@ -1,11 +1,20 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+
 const MyPosts = () => {
     return (
-        <div>
-            My posts
+        <div className={s.postsBlock}>
+            <h3>My posts</h3>
+
             <div>
-                New post
+                <div>
+                    <textarea>
+                        Enter next here
+                    </textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
             </div>
             <div className={s.posts}>
                 <Post message='How are you&' likes={15}/>
