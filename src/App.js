@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -21,9 +21,9 @@ debugger;
                 <div className='app-wrapper-content'>
 
                     <Route path="/dialogs"
-                           render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
+                           render={ () => <Dialogs state={props.appState.dialogsPage}/>}/>
                     <Route path="/profile"
-                           render={ () => <Profile state={props.state.profilePage}/>}/>
+                           render={ () => <Profile state={props.appState.profilePage}/>}/>
 
                 </div>
             </div>
