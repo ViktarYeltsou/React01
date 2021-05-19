@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -9,6 +9,8 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 const App = (props) => {
 
+
+debugger;
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -18,8 +20,10 @@ const App = (props) => {
 
                 <div className='app-wrapper-content'>
 
-                    <Route path="/dialogs" render={ () => <Dialogs dialogs={props.dg} messages={props.msg}/>}/>
-                    <Route path="/profile" render={ () => <Profile posts={props.pst}/>}/>
+                    <Route path="/dialogs"
+                           render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path="/profile"
+                           render={ () => <Profile state={props.state.profilePage}/>}/>
 
                 </div>
             </div>
