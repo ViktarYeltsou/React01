@@ -4,14 +4,10 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-// import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 
 const App = (props) => {
-
-
-debugger;
-
     return (
 
             <div className='app-wrapper'>
@@ -25,7 +21,9 @@ debugger;
                            render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
                     <Route path="/profile"
                            render={ () => <Profile state={props.state.profilePage}
-                                                   addPost={props.addPost}/>}/>
+                                                   addPost={props.addPost}
+                                                   updateNewPostText={props.updateNewPostText}/>}
+                    />
 
                 </div>
             </div>
