@@ -25,17 +25,17 @@ let state = {
 
     },
 }
-export let addMesaage = () => {
+export let addMessage = () => {
     let newMessage = {
         id: 4,
-        message: state.dialogsPage.newMessage,
+        message: state.dialogsPage.newMsgText,
     }
     state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newMessage = '';
+    state.dialogsPage.newMsgText = '';
     renderEntireTree(state);
 }
 export let updateNewMsgTxt = (newMsg) => {
-    state.dialogsPage.newMessage = newMsg;
+    state.dialogsPage.newMsgText = newMsg;
     renderEntireTree(state);
 }
 export let addPost = () => {
