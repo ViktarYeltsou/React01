@@ -14,6 +14,7 @@ let state = {
             {id: 2, message: "We've got our own WEB!"},
             {id: 3, message: 'Congratulations!!'},
         ],
+        newMsgText: 'newMsg'
     },
     profilePage: {
         posts: [
@@ -21,9 +22,22 @@ let state = {
             {id: 2, message: "i'm fine!", likes: 10},
         ],
         newPostText: 'newPostText',
+
     },
 }
-
+export let addMesaage = () => {
+    let newMessage = {
+        id: 4,
+        message: state.dialogsPage.newMessage,
+    }
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessage = '';
+    renderEntireTree(state);
+}
+export let updateNewMsgTxt = (newMsg) => {
+    state.dialogsPage.newMessage = newMsg;
+    renderEntireTree(state);
+}
 export let addPost = () => {
     let newPost = {
         id: 5,
@@ -35,6 +49,7 @@ export let addPost = () => {
     renderEntireTree(state);
 }
 export let updateNewPostText = (newText) => {
+
     state.profilePage.newPostText = newText;
     renderEntireTree(state);
 }
