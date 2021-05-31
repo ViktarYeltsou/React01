@@ -14,7 +14,7 @@ let state = {
             {id: 2, message: "We've got our own WEB!"},
             {id: 3, message: 'Congratulations!!'},
         ],
-        newMsgText: 'newMsg'
+        newMsgText: 'newMsg',
     },
     profilePage: {
         posts: [
