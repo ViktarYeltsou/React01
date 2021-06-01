@@ -1,4 +1,5 @@
-import {renderEntireTree} from "../Render";
+
+let renderEntireTree = () => {} //заглушка, будет переопределена из subsribe
 
 let state = {
     dialogsPage: {
@@ -54,4 +55,7 @@ export let updateNewPostText = (newText) => {
     renderEntireTree(state);
 }
 
+export let subscribe = (observer) => {
+    renderEntireTree = observer;
+}
 export default state;
