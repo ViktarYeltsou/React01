@@ -35,9 +35,10 @@ let store = {
         this._state.dialogsPage.newMsgText = newMsg;
     },
     addMessage() {
+        debugger;
         let newMessage = {
             id: 4,
-            message: this._state.dialogsPage.newMsgText,
+            message: this._state.dialogsPage.newMsgText
         }
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMsgText = '';
