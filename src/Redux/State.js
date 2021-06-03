@@ -54,7 +54,7 @@ let store = {
             likes: 0,
         }
         this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
+        this._state.profilePage.newPostText = ' ';
         this._callSubscriber(this.getState());
     },
     updateNewMsgTxt(newMsg){
