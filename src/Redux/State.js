@@ -1,8 +1,5 @@
 
 let store = {
-
-    _callSubscriber() {}, //заглушка, будет переопределена из subsribe
-
     _state: {
         dialogsPage: {
             dialogs: [
@@ -28,9 +25,15 @@ let store = {
 
         },
     },
+    _callSubscriber() {}, //заглушка, будет переопределена из subsribe
+
     getState(){
         return this._state;
     },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
     setNewMsgTxt(newMsg){
         this._state.dialogsPage.newMsgText = newMsg;
     },
@@ -43,11 +46,8 @@ let store = {
         this._state.dialogsPage.newMsgText = '';
         this._callSubscriber(this.getState());
     },
-    updateNewMsgTxt(newMsg){
-        this.setNewMsgTxt(newMsg);
-        this._callSubscriber(this.getState());
-    },
     addPost() {
+        debugger;
         let newPost = {
             id: 5,
             message: this._state.profilePage.newPostText,
@@ -57,13 +57,20 @@ let store = {
         this._state.profilePage.newPostText = '';
         this._callSubscriber(this.getState());
     },
+    updateNewMsgTxt(newMsg){
+        this.setNewMsgTxt(newMsg);
+        this._callSubscriber(this.getState());
+    },
     updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this.getState());
     },
 
-    subscribe(observer) {
-        this._callSubscriber = observer;
+    dispatch(action){
+        if (action.type === 'ADD-MESSAGE') {this.addMessage();}
+        else if (action.type === 'ADD-POST') {this.addPost()}
+        else if (action.type === 'UPD-NEW-MSG-TEXT') {this.updateNewMsgTxt(action.newMsg)}
+        else if (action.type === 'UPD-NEW-POST-TEXT') {this.updateNewPostText(action.newText)}
     }
 }
 export default store;//state;
