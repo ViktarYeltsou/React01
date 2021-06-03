@@ -1,7 +1,7 @@
 
 let store = {
 
-    _renderEntireTree() {}, //заглушка, будет переопределена из subsribe
+    _callSubscriber() {}, //заглушка, будет переопределена из subsribe
 
     _state: {
         dialogsPage: {
@@ -35,18 +35,17 @@ let store = {
         this._state.dialogsPage.newMsgText = newMsg;
     },
     addMessage() {
-        debugger;
         let newMessage = {
             id: 4,
             message: this._state.dialogsPage.newMsgText
         }
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMsgText = '';
-        this._renderEntireTree(this._state);
+        this._callSubscriber(this.getState());
     },
     updateNewMsgTxt(newMsg){
         this.setNewMsgTxt(newMsg);
-        this._renderEntireTree(this.getState);
+        this._callSubscriber(this.getState());
     },
     addPost() {
         let newPost = {
@@ -56,15 +55,16 @@ let store = {
         }
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = '';
-        this._renderEntireTree(this._state);
+        this._callSubscriber(this.getState());
     },
     updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
-        this._renderEntireTree(this._state);
+        this._callSubscriber(this.getState());
     },
 
     subscribe(observer) {
-        this._renderEntireTree = observer;
+        this._callSubscriber = observer;
     }
 }
 export default store;//state;
+window.store = store;

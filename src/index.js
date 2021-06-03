@@ -7,21 +7,21 @@ import React from "react";
 import App from "./App";
 import store from "./Redux/State.js";
 
-let renderEntireTree = (store) => {
+let renderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App state={store._state}
-                     addPost={store.addPost}
-                     addMessage={store.addMessage}
-                     updateNewMsgTxt={store.updateNewMsgTxt}
-                     updateNewPostText={store.updateNewPostText}/>
+                <App state={state}
+                     addPost={store.addPost.bind(store)}
+                     addMessage={store.addMessage.bind(store)}
+                     updateNewMsgTxt={store.updateNewMsgTxt.bind(store)}
+                     updateNewPostText={store.updateNewPostText.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>
         , document.getElementById('root')
     );
 }
-renderEntireTree(store);
+renderEntireTree(store.getState());
 
 store.subscribe(renderEntireTree);
 
