@@ -1,4 +1,7 @@
-
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPD_NEW_MSG_TXT = 'UPD-NEW-MSG-TEXT'
+const UPD_NEW_POST_TXT = 'UPD-NEW-POST-TEXT'
 let store = {
     _state: {
         dialogsPage: {
@@ -67,11 +70,16 @@ let store = {
     },
 
     dispatch(action){
-        if (action.type === 'ADD-MESSAGE') {this.addMessage();}
-        else if (action.type === 'ADD-POST') {this.addPost()}
-        else if (action.type === 'UPD-NEW-MSG-TEXT') {this.updateNewMsgTxt(action.newMsg)}
-        else if (action.type === 'UPD-NEW-POST-TEXT') {this.updateNewPostText(action.newText)}
+        if (action.type === ADD_MESSAGE) {this.addMessage();}
+        else if (action.type === ADD_POST) {this.addPost()}
+        else if (action.type === UPD_NEW_MSG_TXT) {this.updateNewMsgTxt(action.newMsg)}
+        else if (action.type === UPD_NEW_POST_TXT) {this.updateNewPostText(action.newText)}
     }
 }
+export const addPostActionCreator = () => ({type : ADD_POST});
+export const addMessageActionCreator = () => ({type : ADD_MESSAGE});
+export const updateNewMsgTxtActionCreator = () => ({type : UPD_NEW_MSG_TXT});
+export const updateNewPostTextActionCreator = () => ({type : UPD_NEW_POST_TXT});
+
 export default store;//state;
 window.store = store;
