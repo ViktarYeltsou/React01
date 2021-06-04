@@ -5,21 +5,17 @@ import React from "react";
 import {addMessageActionCreator, updateNewMsgTxtActionCreator} from "../../Redux/dialogsReducer";
 
 const Dialogs = (props) => {
-
+    debugger;
     let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
     let messageElements = props.state.messages.map(m => <Message message={m.message} id={m.id}/>)
-    let newMsgElement = React.createRef();
 
     let addMessage = () => {
         props.dispatch(addMessageActionCreator());
-        // props.addMessage();
     }
-    let onMsgChange = () => {
-        let text = newMsgElement.current.value;
-        let action = updateNewMsgTxtActionCreator(text); //{ type: 'UPD-NEW-MSG-TEXT', newMsg: text};
-        props.dispatch(action);
-        // props.updateNewMsgTxt(text);
-    }
+    let onMsgChange = (e) => {
+        let text = e.target.value; //достаем значение из элемента, который изменился
+        props.dispatch(updateNewMsgTxtActionCreator(text));
+     }
     return (
         <div className={s.dialogs}>
             <div>
@@ -27,8 +23,9 @@ const Dialogs = (props) => {
             </div>
             <div>
                 <textarea onChange={onMsgChange}
-                          ref={newMsgElement}
+                          // ref={newMsgElement}
                           value={props.state.newMsgText} />
+
         </div>
 
     <div className={s.dialogsItems}>

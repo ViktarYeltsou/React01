@@ -8,15 +8,12 @@ import App from "./App";
 import store from "./Redux/State.js";
 
 let renderEntireTree = (state) => {
+    debugger;
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
                 <App state={state}
                      dispatch={store.dispatch.bind(store)}
-                     // addPost={store.addPost.bind(store)}
-                     // addMessage={store.addMessage.bind(store)}
-                     // updateNewMsgTxt={store.updateNewMsgTxt.bind(store)}
-                     // updateNewPostText={store.updateNewPostText.bind(store)}
                     />
             </React.StrictMode>
         </BrowserRouter>

@@ -2,6 +2,7 @@ import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
+    debugger;
     return (
         <nav className={`${s.nav} ${s.item}`}>
             <div>
