@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import React from "react";
 import App from "./App";
-import store from "./Redux/State.js";
+import store from "./Redux/reduxStore"; //State.js";
 
 let renderEntireTree = (state) => {
     debugger;
@@ -14,6 +14,7 @@ let renderEntireTree = (state) => {
             <React.StrictMode>
                 <App state={state}
                      dispatch={store.dispatch.bind(store)}
+                     store={store}
                     />
             </React.StrictMode>
         </BrowserRouter>
