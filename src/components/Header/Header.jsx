@@ -1,9 +1,9 @@
 import s from './Header.module.css'
-
+import logo from './Img/greyCoders.png'
 const Header = () => {
     return (
         <header className={s.header}>
-            <img alt='' src='https://www.dsgroup.by/bitrix/templates/aspro-corporation/images/logo.png'/>
+            <img alt='' src={logo}/>
         </header>
     );
 }
