@@ -47,5 +47,5 @@ let store = {
     }
 }
 
-export default store;//state;
+//export default store;//state;
 window.store = store;
